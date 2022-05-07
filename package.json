@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ranman166/rts-project/issues"
   },
-  "homepage": "https://github.com/ranman166/rts-project#readme"
+  "homepage": "https://github.com/ranman166/rts-project#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
 }
