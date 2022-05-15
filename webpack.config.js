@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
-  entry: './src/index.ts',
+  entry: { "client": './src/client.ts', "server": './src/server.ts' },
   module: {
     rules: [
       {
@@ -16,8 +16,14 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
+  externals: {
+    'http': 'http',
+    'fs': 'fs',
+
+  },
+  externalsType: "node-commonjs",
   output: {
-    filename: 'bundle.js',
+    filename: '[name]-bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
 };

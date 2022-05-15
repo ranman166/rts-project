@@ -2,7 +2,7 @@
   "name": "rts-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client.js",
   "scripts": {
     "build": "webpack"
   },

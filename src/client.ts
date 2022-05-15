@@ -1,10 +1,12 @@
-interface Vector2 {
+// import {Vector2} from "./Vector2";
+
+interface IVector2 {
     x: number;
     y: number;
 }
 
 interface Unit {
-    position: Vector2;
+    position: IVector2;
     id: string;
     speed: number;
     color: string
@@ -14,7 +16,7 @@ interface GameState {
     units: Unit[];
 }
 
-let target: Vector2 | undefined = undefined;
+let target: IVector2 | undefined = undefined;
 let state: GameState = {
     units: []
 };
@@ -34,23 +36,23 @@ function render(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D): v
 
 }
 
-function subtract(a: Vector2, b: Vector2): Vector2 {
+function subtract(a: IVector2, b: IVector2): IVector2 {
     return { x: a.x - b.x, y: a.y - b.y }
 }
 
-function add(a: Vector2, b: Vector2): Vector2 {
+function add(a: IVector2, b: IVector2): IVector2 {
     return { x: a.x + b.x, y: a.y + b.y }
 }
-function len(a: Vector2): number {
+function len(a: IVector2): number {
     return Math.sqrt(a.x * a.x + a.y * a.y)
 }
 
-function scale(s: number, b: Vector2) {
+function scale(s: number, b: IVector2) {
 
     return { x: b.x * s, y: b.y * s }
 }
 
-function normalize(a: Vector2) {
+function normalize(a: IVector2) {
 
     // a scaled by length so a as length 1
     return scale(1 / len(a), a)
