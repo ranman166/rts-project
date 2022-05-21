@@ -1,5 +1,7 @@
 import * as http from "http"
 import * as fs from "fs"
+import { WebSocketServer } from "ws"
+
 
 
 const server = http.createServer((request, response) => {
@@ -26,6 +28,15 @@ const server = http.createServer((request, response) => {
             response.end(request.url)
 
     }
+})
+
+const wss = new WebSocketServer({ server: server })
+
+wss.on("connection", (socket) => {
+    console.log("connected")
+    socket.on("message", (data) => {
+        console.log(data.toString())
+    })
 })
 
 server.listen(1337, "localhost", () => { console.log("Running") })

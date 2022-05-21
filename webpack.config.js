@@ -19,6 +19,7 @@ module.exports = {
   externals: {
     'http': 'http',
     'fs': 'fs',
+    'ws': 'ws',
 
   },
   externalsType: "node-commonjs",

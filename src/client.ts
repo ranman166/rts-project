@@ -71,6 +71,19 @@ function tick(): void {
     }
 }
 
+
+function connectToServer() : void {
+
+    const socket = new WebSocket("ws:/localhost:1337")
+
+    
+    socket.addEventListener('open', () => {
+        socket.send('Hello Server!');
+        console.log("Connected bois")
+    });
+
+}
+
 function createWorld(): void {
 
     for (let x: number = 0; x < 1000; x++) {
@@ -88,6 +101,8 @@ function createWorld(): void {
 }
 
 function main(): void {
+
+    connectToServer();
 
     createWorld();
 
